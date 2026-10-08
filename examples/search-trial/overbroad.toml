@@ -1,0 +1,13 @@
+# Deliberately overbroad negative example. Never copy this as a recommended rule.
+schema_version = 1
+builtins = ["bearer", "credential_assignment", "private_key"]
+
+[[rules]]
+id = "demo-operator-code"
+pattern = '\boperator_code=[^\s]+'
+action = "mask"
+
+[[rules]]
+id = "deliberately-overbroad"
+pattern = 'request=demo-42[^\r\n]*'
+action = "mask"

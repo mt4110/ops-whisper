@@ -1,0 +1,3 @@
+client=<CLIENT_1> host=<HOST_1> user=<USER_1>
+Authorization: Bearer <REDACTED>
+retry host=<HOST_1> status=503

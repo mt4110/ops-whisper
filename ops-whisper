@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+"""Run the local development CLI from this checkout."""
+
+from ops_whisper.cli import main
+
+raise SystemExit(main())

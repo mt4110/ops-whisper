@@ -1,0 +1,30 @@
+name: Feature request / 改善提案
+description: Describe one concrete sharing task / 一つのログ共有作業を説明してください
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep proposals within the local editing and review workflow.
+        Do not include real logs, identifiers, or secret values.
+        ローカルの編集・確認という範囲で、具体的な不便と既存手段を説明してください。
+  - type: textarea
+    id: problem
+    attributes:
+      label: Task and problem / 作業と問題
+      description: What do you need to do? Use synthetic examples only.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Existing tools and manual workaround / 既存ツールと手作業
+      description: Explain what remains difficult with existing methods.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Smallest useful result and verification / 最小の成果と確認方法
+      description: Include data handling and changes to the workflow, if any.
+    validations:
+      required: true

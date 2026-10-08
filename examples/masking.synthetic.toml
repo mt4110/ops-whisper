@@ -1,0 +1,10 @@
+# Working search masking policy. Synthetic patterns only; keep actual rules private.
+schema_version = 1
+builtins = ["bearer", "credential_assignment", "private_key"]
+
+[[rules]]
+id = "demo-secret"
+pattern = 'sample-secret'
+action = "mask"
+enabled = true
+flags = []

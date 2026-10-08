@@ -1,0 +1,3 @@
+client=ExampleCo host=api.internal.example user=sample-user
+Authorization: Bearer sample-secret
+retry host=api.internal.example status=503

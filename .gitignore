@@ -1,0 +1,15 @@
+# Actual logs, rules, and evaluation records belong outside tracked examples.
+/private/
+/local-rules.toml
+*.log
+*.raw.txt
+*.reviewed.txt
+*.aliases.json
+
+# Future Rust build output; keep Cargo.lock tracked for the CLI.
+/target/
+
+# Local editor and interpreter output.
+.DS_Store
+__pycache__/
+*.pyc

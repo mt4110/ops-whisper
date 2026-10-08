@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "synthetic_only": true,
+  "fixture_sha256": "dabb5a4c772a001d9738958170e9468b5ad220439436c8521dd41468920e6a25",
+  "fixture_lines": 320,
+  "fixture_bytes": 39440,
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Darwin",
+    "architecture": "arm64",
+    "rg": "ripgrep 15.2.0 (rev e89fff89ac)"
+  },
+  "measurement": "Unicode code points and UTF-8 bytes; no token, speed, or real-work value estimate",
+  "implementation_sha256": {
+    "ops_whisper/cli.py": "c6464b1cf0783a4a5fba09d319efafb8aa2b566b3a05c21095e667a182a845e6",
+    "ops_whisper/masking.py": "d4813932fb3c12fd93a968fba8182b3843ad4537020b62e6ab3b0cc2ea18739b"
+  },
+  "policy_sha256": {
+    "builtins.toml": "c75fbd5707075ef2d62e571a8063c01547c572cdf616eb3653b77f9570edde85",
+    "focused.toml": "11d5a07bb750581323552d68f86dd3a0552785946ef0574492f5962277fb6102",
+    "overbroad.toml": "473a6c117eea529ee2580a3658029137e96d6d284d93595419b0dfaa8e36bedd"
+  },
+  "source_unchanged": true,
+  "all_expectations_reproduced": true,
+  "safe_to_share_certified": false,
+  "cases": [
+    {
+      "id": "broad_service",
+      "expectation_reproduced": true,
+      "policy": "focused.toml",
+      "matched_lines": 313,
+      "occurrences": 313,
+      "returned_match_lines": 5,
+      "omitted_match_lines": 308,
+      "evidence_lines": [],
+      "missing_evidence_lines": [
+        303,
+        305,
+        307,
+        315
+      ],
+      "useful_fields_preserved": false,
+      "unknown_secret_visible": false,
+      "observed_limitation": "first_matches_miss_late_evidence",
+      "output": {
+        "rg_text": {
+          "characters": 46585,
+          "utf8_bytes": 46585
+        },
+        "ops_json": {
+          "characters": 1854,
+          "utf8_bytes": 1854
+        },
+        "masked_ops_json": {
+          "characters": 1852,
+          "utf8_bytes": 1852
+        }
+      },
+      "masked_spans_in_full_file": 5
+    },
+    {
+      "id": "incident_builtins",
+      "expectation_reproduced": true,
+      "policy": "builtins.toml",
+      "matched_lines": 4,
+      "occurrences": 4,
+      "returned_match_lines": 4,
+      "omitted_match_lines": 0,
+      "evidence_lines": [
+        303,
+        305,
+        307,
+        315
+      ],
+      "missing_evidence_lines": [],
+      "useful_fields_preserved": true,
+      "unknown_secret_visible": true,
+      "observed_limitation": "builtin_misses_unclassified_secret",
+      "output": {
+        "rg_text": {
+          "characters": 1383,
+          "utf8_bytes": 1383
+        },
+        "ops_json": {
+          "characters": 2906,
+          "utf8_bytes": 2906
+        },
+        "masked_ops_json": {
+          "characters": 2894,
+          "utf8_bytes": 2894
+        }
+      },
+      "masked_spans_in_full_file": 4
+    },
+    {
+      "id": "incident_focused",
+      "expectation_reproduced": true,
+      "policy": "focused.toml",
+      "matched_lines": 4,
+      "occurrences": 4,
+      "returned_match_lines": 4,
+      "omitted_match_lines": 0,
+      "evidence_lines": [
+        303,
+        305,
+        307,
+        315
+      ],
+      "missing_evidence_lines": [],
+      "useful_fields_preserved": true,
+      "unknown_secret_visible": false,
+      "observed_limitation": null,
+      "output": {
+        "rg_text": {
+          "characters": 1383,
+          "utf8_bytes": 1383
+        },
+        "ops_json": {
+          "characters": 2906,
+          "utf8_bytes": 2906
+        },
+        "masked_ops_json": {
+          "characters": 2894,
+          "utf8_bytes": 2894
+        }
+      },
+      "masked_spans_in_full_file": 5
+    },
+    {
+      "id": "incident_overbroad",
+      "expectation_reproduced": true,
+      "policy": "overbroad.toml",
+      "matched_lines": 4,
+      "occurrences": 4,
+      "returned_match_lines": 4,
+      "omitted_match_lines": 0,
+      "evidence_lines": [
+        303,
+        305,
+        307,
+        315
+      ],
+      "missing_evidence_lines": [],
+      "useful_fields_preserved": false,
+      "unknown_secret_visible": false,
+      "observed_limitation": "overbroad_rule_hides_attempt_status_and_relationship",
+      "output": {
+        "rg_text": {
+          "characters": 1383,
+          "utf8_bytes": 1383
+        },
+        "ops_json": {
+          "characters": 2906,
+          "utf8_bytes": 2906
+        },
+        "masked_ops_json": {
+          "characters": 2895,
+          "utf8_bytes": 2895
+        }
+      },
+      "masked_spans_in_full_file": 10
+    },
+    {
+      "id": "nonsecret_counter",
+      "expectation_reproduced": true,
+      "policy": "builtins.toml",
+      "matched_lines": 1,
+      "occurrences": 1,
+      "returned_match_lines": 1,
+      "omitted_match_lines": 0,
+      "evidence_lines": [],
+      "missing_evidence_lines": [
+        303,
+        305,
+        307,
+        315
+      ],
+      "useful_fields_preserved": false,
+      "unknown_secret_visible": false,
+      "observed_limitation": "builtin_masks_nonsecret_counter",
+      "output": {
+        "rg_text": {
+          "characters": 116,
+          "utf8_bytes": 116
+        },
+        "ops_json": {
+          "characters": 968,
+          "utf8_bytes": 968
+        },
+        "masked_ops_json": {
+          "characters": 966,
+          "utf8_bytes": 966
+        }
+      },
+      "masked_spans_in_full_file": 4
+    },
+    {
+      "id": "private_key_middle",
+      "expectation_reproduced": true,
+      "policy": "builtins.toml",
+      "matched_lines": 1,
+      "occurrences": 1,
+      "returned_match_lines": 1,
+      "omitted_match_lines": 0,
+      "evidence_lines": [],
+      "missing_evidence_lines": [
+        303,
+        305,
+        307,
+        315
+      ],
+      "useful_fields_preserved": false,
+      "unknown_secret_visible": false,
+      "observed_limitation": null,
+      "output": {
+        "rg_text": {
+          "characters": 44,
+          "utf8_bytes": 44
+        },
+        "ops_json": {
+          "characters": 895,
+          "utf8_bytes": 895
+        },
+        "masked_ops_json": {
+          "characters": 894,
+          "utf8_bytes": 894
+        }
+      },
+      "masked_spans_in_full_file": 4
+    }
+  ]
+}

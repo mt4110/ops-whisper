@@ -1,0 +1,31 @@
+# Proposed review schema only; review is unimplemented.
+# Working search masking uses masking.synthetic.toml instead.
+# Synthetic values only. Never commit actual client rules or secret values.
+schema_version = 1
+
+[[rules]]
+id = "example-client"
+literal = "ExampleCo"
+match = "exact_token"
+action = "alias"
+category = "CLIENT"
+
+[[rules]]
+id = "example-host"
+literal = "api.internal.example"
+match = "exact_token"
+action = "alias"
+category = "HOST"
+
+[[rules]]
+id = "example-user"
+literal = "sample-user"
+match = "exact_token"
+action = "alias"
+category = "USER"
+
+[[rules]]
+id = "example-mask"
+literal = "sample-secret"
+match = "exact_token"
+action = "mask"
