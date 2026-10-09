@@ -8,9 +8,9 @@ A development search CLI exists; there is no released or supported version yet. 
 
 ## 非公開報告 / Private reporting
 
-**2026-10-08にGitHub Private vulnerability reportingを有効化し、APIの`enabled:true`を確認しました。管理者の個人通知設定は確認待ちです。** 通知経路の確認は初期公開の必須条件として残します。
+**2026-10-08にGitHub Private vulnerability reportingを有効化し、APIの`enabled:true`を確認しました。2026-10-09に管理者のWatch → Custom → Security alertsを保存し、個人通知設定のGitHub上での通知が有効であることを画面で確認しました。** 通知設定は確認済みです。実報告の配送試験は行っていません。
 
-**GitHub private vulnerability reporting was enabled on 2026-10-08 and confirmed through the API. The administrator's personal notification settings remain unverified.** Notification routing must be confirmed before initial publication.
+**GitHub private vulnerability reporting was enabled on 2026-10-08 and confirmed through the API. On 2026-10-09, Custom Security alerts were saved and GitHub notification delivery was confirmed in the administrator’s settings.** Notification configuration is verified; actual report delivery has not been tested.
 
 [Security Advisories](https://github.com/mt4110/ops-whisper/security/advisories)の「Report a vulnerability」から非公開で報告してください。実報告を送信する試験は行っていません。
 

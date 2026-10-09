@@ -1,6 +1,6 @@
 # ops-whisper OSS公開準備
 
-更新日：2026-10-08。**PF-1「再現して説明できるポートフォリオCLI」はローカル完了。PF-2のOSS公開候補もローカル完了。PF-3は承認済み、Linux予行成功・通知確認待ち。** 実装済みの小さなsearchを公開するための準備を記す。保証済みのセキュリティ基盤として扱わない。
+更新日：2026-10-09。**PF-1「再現して説明できるポートフォリオCLI」はローカル完了。PF-2のOSS公開候補もローカル完了。PF-3は承認済み、Linux予行成功・通知確認済み・公開操作前。** 実装済みの小さなsearchを公開するための準備を記す。保証済みのセキュリティ基盤として扱わない。
 
 現在の到達目標は[マイルストーン](MILESTONES.md)、残作業は[PF-PACK / PF-PUBLISH](TASKS.md#pf-pack)。[PF-PACKのローカル再現と準備](evaluation/PF_PACK.md)は完了し、利用者の氏名指定でMITを採用し、PF-2はローカル完了。事業上の需要や実案件での便益の実証、DR/IR/OWの実務試験は、このポートフォリオの公開条件にしない。未知の秘密や根拠の欠落等の制約は、公開時にも明示する。
 
@@ -14,7 +14,7 @@
 | docs/MASKING.md / examples/masking.synthetic.toml | 位置を保つ本文マスキングとTOML例 | ローカル合成検証。未知の秘密・パスは対象外 |
 | docs/SEARCH_CLI.md | 範囲、上限、JSON、省略、失敗時の契約 | 実装に対応。明示TOMLによる本文マスキングを追加 |
 | docs/PRODUCT_REVIEW.md | 現在のポートフォリオ判断と、以前の実務・事業仮説 | 商業性と実案件の便益は未検証 |
-| docs/TASKS.md | PF完成・公開タスク、完了したSR/MS、保留DR/LG/IR/OW | PF-DOC完了。PF-PACKローカル完了・MIT採用済み。PF-PUBLISHはLinux予行成功・通知確認待ち |
+| docs/TASKS.md | PF完成・公開タスク、完了したSR/MS、保留DR/LG/IR/OW | PF-DOC完了。PF-PACKローカル完了・MIT採用済み。PF-PUBLISHはLinux予行成功・通知確認済み・公開操作前 |
 | docs/evaluation/PF_PACK.md / publication-files.txt | 55ファイルの明示候補と、ソース一式だけでの再現記録 | ローカル再現成功。公開・設定変更は未実施 |
 | THIRD_PARTY_NOTICES.md | Python・rg・CI用checkoutと、同梱しない依存の整理 | 対象版の一次資料で確認 |
 | docs/REQUIREMENTS_RECOVERY.md | 混在資料から要件・暫定設計への手順と実装判断 | 机上整理。形式変換・OCRは未実施 |
@@ -26,10 +26,10 @@
 | docs/REVIEW_FLOW.md | 最小操作の紙上案 | 利用者試験は未実施 |
 | docs/evaluation/INFRA_REPORT_TEMPLATE.md | 分析結果と証拠を対応付ける記録型 | 新規実装を増やさない代替案 |
 | docs/DESIGN.md | 入出力・レビュー・変換の契約 | 設計案 |
-| docs/MILESTONES.md | PF-0〜PF-3の到達目標・完了条件・終了地点と、以前の計画 | PF-2までローカル完了。PF-3はLinux予行成功・通知確認待ち |
+| docs/MILESTONES.md | PF-0〜PF-3の到達目標・完了条件・終了地点と、以前の計画 | PF-2までローカル完了。PF-3はLinux予行成功・通知確認済み・公開操作前 |
 | docs/THREAT_MODEL.md | データ経路と残るリスク | 設計要件 |
 | CONTRIBUTING.md | 変更範囲、検証、日英文書 | 準備済み |
-| SECURITY.md | 非公開報告と機密情報の取扱い | 窓口は有効化済み。通知設定は確認待ち |
+| SECURITY.md | 非公開報告と機密情報の取扱い | 窓口は有効化済み。通知設定は2026-10-09に画面で確認済み |
 | CODE_OF_CONDUCT.md | 参加と運用方針 | 専用非公開連絡先は未設定 |
 | CHANGELOG.md | 未リリースの変更記録 | 準備済み |
 | .github/ISSUE_TEMPLATE | 不具合、提案、報告方針へのリンク | 合成再現だけを求める |
@@ -50,9 +50,9 @@ CODEOWNERSは自動で必須レビューを強制しない。ブランチ保護�
 
 ## セキュリティ報告窓口
 
-利用者のPF-3承認に基づき2026-10-08に有効化し、GitHub APIの`enabled: true`を確認した。受付URLとSECURITY.mdを更新した。管理者の個人通知設定は確認待ちであり、公開条件として残す。[GitHubの設定手順](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository)
+利用者のPF-3承認に基づき2026-10-08に有効化し、GitHub APIの`enabled: true`を確認した。受付URLとSECURITY.mdを更新した。管理者の個人通知設定は2026-10-09に画面で確認済みであり、公開条件として残す。[GitHubの設定手順](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository)
 
-公開Issueへ機密や悪用手順を誘導しない。テンプレートのリンクはSECURITY.mdへ向け、通知受信の確認を済んだと扱わない。
+公開Issueへ機密や悪用手順を誘導しない。テンプレートのリンクはSECURITY.mdへ向け、通知設定の確認と実報告の配送試験を区別する。
 
 ## CI方針
 
@@ -83,4 +83,4 @@ PRの確認には`pull_request`を使い、特権的な`pull_request_target`で�
 
 ## 今回の境界
 
-PF-PACKに続きPF-3のmainへの通常commit/push、非公開脆弱性報告の有効化、CI確認も利用者が承認した。通知設定確認という既存の公開条件を守る。追加機能、実ログ取得、タグ・Release・パッケージ配布、権限拡大や履歴改変は含めない。各チェック欄は、次の操作への承認を代行しない。
+PF-PACKに続きPF-3のmainへの通常commit/push、非公開脆弱性報告の有効化、CI確認も利用者が承認した。通知設定確認という既存の公開条件を守る。2026-10-09に署名タグと日英Releaseの公開も追加承認された。追加機能、実ログ取得、パッケージ・バイナリ配布、権限拡大や履歴改変は含めない。各チェック欄は、次の操作への承認を代行しない。
