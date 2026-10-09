@@ -8,9 +8,9 @@ It searches text with existing ripgrep and returns line-linked excerpts as text 
 
 ## Current status
 
-**The feature scope is closed as a small portfolio CLI.** Search, body masking, and the fixed synthetic comparison have been checked locally. PF-1, a reproducible and explainable portfolio CLI, is the completion target for this development scope. Preparing an OSS publication candidate and publishing it are separate stages. No distribution or global installation is provided.
+**The feature scope is closed as a small portfolio CLI.** Search, body masking, and the fixed synthetic comparison have been checked locally. PF-3, a source-published portfolio OSS project, is complete. The initial source release target is `v0.1.0`. No binary distribution or global installer is provided.
 
-Checks were run on macOS arm64 with Python 3.14.7 and rg 15.2.0. A Linux rehearsal also passed on Debian 12 arm64 with Python 3.11.2 and rg 13.0.0. GitHub remote CI remains unverified and Windows has not been tested. Real-workflow time savings, token cost reductions, and secret detection accuracy have not been demonstrated.
+Checks were run on macOS arm64 with Python 3.14.7 and rg 15.2.0. A Linux rehearsal also passed on Debian 12 arm64 with Python 3.11.2 and rg 13.0.0. Documentation, 52 tests, and six synthetic cases also passed on GitHub Ubuntu 24.04.5 amd64 with rg 14.1.0; the exact Python version was not recorded. Windows has not been tested. Real-workflow time savings, token cost reductions, and secret detection accuracy have not been demonstrated.
 
 ## Usage
 
@@ -54,7 +54,7 @@ A successful comparison means known failure cases were also reproduced as expect
 | PF-0 | A working small CLI | Locally complete |
 | PF-1 | A reproducible and explainable portfolio CLI | Locally complete; end of this feature development scope |
 | PF-2 | An OSS publication candidate others can try | Locally complete; MIT adopted |
-| PF-3 | A source-published portfolio OSS project | Publication approved; CI rehearsal passed; notification settings and remote CI remain pending |
+| PF-3 | A source-published portfolio OSS project | Complete; main published, notification settings verified, remote CI passed |
 
 [Milestones](docs/MILESTONES.md) define completion and stopping points, [tasks](docs/TASKS.md) record remaining work, and [OSS readiness](docs/OSS_READINESS.md) covers publication conditions. Design evidence includes search scope and output budgets, full-file masking before excerpting, bounded regex workers, withholding results on failure, and boundary and failure checks. Test counts alone do not establish quality. Detailed planning documents are currently in Japanese.
 
@@ -68,7 +68,7 @@ python3 -m unittest discover -s tests -v
 python3 scripts/run_search_trial.py
 ```
 
-Check documentation, search/masking boundaries and failures, and the synthetic comparison separately. Search tests also require rg. Tests create synthetic fixtures in system temp and do not automatically delete them. A remote CI definition exists, but a successful remote run has not been confirmed.
+Check documentation, search/masking boundaries and failures, and the synthetic comparison separately. Search tests also require rg. Tests create synthetic fixtures in system temp and do not automatically delete them. Successful remote CI and its run URL are recorded in the [publication record](docs/evaluation/PF_PUBLISH.md).
 
 See [contributing](CONTRIBUTING.md) for scope and validation, and the [security policy](SECURITY.md) for handling sensitive reports.
 
@@ -76,4 +76,4 @@ See [contributing](CONTRIBUTING.md) for scope and validation, and the [security 
 
 Licensed under MIT, with the notice `Copyright (c) 2026 Masaki Takemura`. See [LICENSE](LICENSE) for the authoritative terms. [External dependencies](THIRD_PARTY_NOTICES.md) and the [publication candidate reproduction report](docs/evaluation/PF_PACK.md) are available.
 
-Private vulnerability reporting is enabled. Administrator notification confirmation, source push, and remote CI remain pending. See the [publication record](docs/evaluation/PF_PUBLISH.md). An explainable portfolio artifact and published, reusable OSS are distinct outcomes.
+Source is published on main, GitHub recognizes the MIT license, and remote CI passed. Private vulnerability reporting is enabled; administrator Security alerts and GitHub notification delivery settings are verified. Actual report delivery was not tested. See the [publication record](docs/evaluation/PF_PUBLISH.md). An explainable portfolio artifact and published, reusable OSS are distinct outcomes.

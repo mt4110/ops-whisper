@@ -1,6 +1,6 @@
 # ops-whisper OSS公開準備
 
-更新日：2026-10-09。**PF-1「再現して説明できるポートフォリオCLI」はローカル完了。PF-2のOSS公開候補もローカル完了。PF-3は承認済み、Linux予行成功・通知確認済み・公開操作前。** 実装済みの小さなsearchを公開するための準備を記す。保証済みのセキュリティ基盤として扱わない。
+更新日：2026-10-09。**PF-1「再現して説明できるポートフォリオCLI」はローカル完了。PF-2のOSS公開候補もローカル完了。PF-3は完了。main公開・通知設定確認・リモートCI成功。** 実装済みの小さなsearchを公開するための準備を記す。保証済みのセキュリティ基盤として扱わない。
 
 現在の到達目標は[マイルストーン](MILESTONES.md)、残作業は[PF-PACK / PF-PUBLISH](TASKS.md#pf-pack)。[PF-PACKのローカル再現と準備](evaluation/PF_PACK.md)は完了し、利用者の氏名指定でMITを採用し、PF-2はローカル完了。事業上の需要や実案件での便益の実証、DR/IR/OWの実務試験は、このポートフォリオの公開条件にしない。未知の秘密や根拠の欠落等の制約は、公開時にも明示する。
 
@@ -9,13 +9,13 @@
 | ファイル | 役割 | 状態 |
 | --- | --- | --- |
 | README.md / README.en.md | 実装済み検索・TOMLマスキング、合成デモ、完成段階、限界 | ローカル整備済み |
-| ops-whisper / ops_whisper / tests | 既存rgを使う最小検索、TOMLマスキング、合成テスト | macOSでローカル確認。未リリース |
+| ops-whisper / ops_whisper / tests | 既存rgを使う最小検索、TOMLマスキング、合成テスト | macOSでローカル確認、UbuntuリモートCI成功。ソース公開済み |
 | docs/evaluation/SEARCH_SYNTHETIC_TRIAL.md / examples/search-trial / scripts/run_search_trial.py | 固定合成ログと独立した期待結果による6条件の比較 | ローカル確認。実ログ・クラウドへのアクセスなし |
 | docs/MASKING.md / examples/masking.synthetic.toml | 位置を保つ本文マスキングとTOML例 | ローカル合成検証。未知の秘密・パスは対象外 |
 | docs/SEARCH_CLI.md | 範囲、上限、JSON、省略、失敗時の契約 | 実装に対応。明示TOMLによる本文マスキングを追加 |
 | docs/PRODUCT_REVIEW.md | 現在のポートフォリオ判断と、以前の実務・事業仮説 | 商業性と実案件の便益は未検証 |
-| docs/TASKS.md | PF完成・公開タスク、完了したSR/MS、保留DR/LG/IR/OW | PF-DOC完了。PF-PACKローカル完了・MIT採用済み。PF-PUBLISHはLinux予行成功・通知確認済み・公開操作前 |
-| docs/evaluation/PF_PACK.md / publication-files.txt | 55ファイルの明示候補と、ソース一式だけでの再現記録 | ローカル再現成功。公開・設定変更は未実施 |
+| docs/TASKS.md | PF完成・公開タスク、完了したSR/MS、保留DR/LG/IR/OW | PF-DOC完了。PF-PACKローカル完了・MIT採用済み。PF-PUBLISH完了。main公開・リモートCI成功 |
+| docs/evaluation/PF_PACK.md / publication-files.txt | 55ファイルの明示候補と、ソース一式だけでの再現記録 | PF-PACK当時のローカル再現記録。現在の公開状態はPF-PUBLISHを参照 |
 | THIRD_PARTY_NOTICES.md | Python・rg・CI用checkoutと、同梱しない依存の整理 | 対象版の一次資料で確認 |
 | docs/REQUIREMENTS_RECOVERY.md | 混在資料から要件・暫定設計への手順と実装判断 | 机上整理。形式変換・OCRは未実施 |
 | docs/evaluation/REQUIREMENTS_RECOVERY_TEMPLATE.md | 資料・根拠・要件・判断・設計の対応を記録する型 | 未記入。実案件情報は保管場所を分ける |
@@ -26,7 +26,7 @@
 | docs/REVIEW_FLOW.md | 最小操作の紙上案 | 利用者試験は未実施 |
 | docs/evaluation/INFRA_REPORT_TEMPLATE.md | 分析結果と証拠を対応付ける記録型 | 新規実装を増やさない代替案 |
 | docs/DESIGN.md | 入出力・レビュー・変換の契約 | 設計案 |
-| docs/MILESTONES.md | PF-0〜PF-3の到達目標・完了条件・終了地点と、以前の計画 | PF-2までローカル完了。PF-3はLinux予行成功・通知確認済み・公開操作前 |
+| docs/MILESTONES.md | PF-0〜PF-3の到達目標・完了条件・終了地点と、以前の計画 | PF-2までローカル完了。PF-3完了。公開とリモートCIの記録あり |
 | docs/THREAT_MODEL.md | データ経路と残るリスク | 設計要件 |
 | CONTRIBUTING.md | 変更範囲、検証、日英文書 | 準備済み |
 | SECURITY.md | 非公開報告と機密情報の取扱い | 窓口は有効化済み。通知設定は2026-10-09に画面で確認済み |
@@ -56,7 +56,7 @@ CODEOWNERSは自動で必須レビューを強制しない。ブランチ保護�
 
 ## CI方針
 
-現在のworkflowは、空白検証を含む文書チェッカー、合成検索テスト、SR-02の再現比較。Python 3.11以上の標準ライブラリを使い、検索テスト用のrgはUbuntuのパッケージから取得する定義。act予行ではDebianのrg 13.0.0で52テストと合成6条件が成功した。GitHubランナーで取得する版・結果は未確認。`contents: read`、checkout資格情報を残さない設定、時間上限、checkoutの完全SHA固定を採用する。秘密値、実ログ、実ルール、対応表を入力・artifact・キャッシュに使わない。fixtureはランナーのtemp配下に作り、テストから削除しない。
+現在のworkflowは、空白検証を含む文書チェッカー、合成検索テスト、SR-02の再現比較。Python 3.11以上の標準ライブラリを使い、検索テスト用のrgはUbuntuのパッケージから取得する定義。act予行ではDebianのrg 13.0.0で52テストと合成6条件が成功した。GitHubのUbuntu 24.04.5 amd64でも成功し、導入したrgパッケージは14.1.0-1。Pythonの厳密な版は未記録。`contents: read`、checkout資格情報を残さない設定、時間上限、checkoutの完全SHA固定を採用する。秘密値、実ログ、実ルール、対応表を入力・artifact・キャッシュに使わない。fixtureはランナーのtemp配下に作り、テストから削除しない。
 
 PRの確認には`pull_request`を使い、特権的な`pull_request_target`で未信頼コードを実行しない。自動コメントや公開に必要な書き込み権限を初期CIへ加えない。[GitHub Actionsの安全指針](https://docs.github.com/en/actions/reference/security/secure-use)
 
@@ -67,13 +67,13 @@ PRの確認には`pull_request`を使い、特権的な`pull_request_target`で�
 - [x] PF-2の公開対象と再現記録が揃い、既存の機能・合成デモ・失敗条件をソース一式だけで試せる。
 - [x] SR-02の制約を日英READMEへ反映し、実ログなしで用途と限界を説明できる。実務の便益・完全な秘密検出を保証しない。
 - [x] 利用者の指示でMITと著作権者表記を確定し、依存の許諾条件・帰属を整理した。
-- [ ] 非公開報告窓口を有効化し、受付と通知を確認した。
-- [ ] 原文ログ、実ルール、トークン、対応表が公開物とGit履歴にない。
-- [ ] 日英READMEの状態とコマンドが実装・リリースに一致する。
-- [ ] 対応OS、入力上限、検出対象、検出漏れ、部分出力の限界を明示した。
-- [ ] 必要なローカル検証とリモートCIを区別して記録し、PF-3完了前に対象ソースのリモートCI成功を確認した。
-- [ ] CODEOWNERSとブランチ保護の運用を確認した。
-- [ ] 版、公開先、内容、利用者の明示承認を記録した。
+- [x] 非公開報告窓口を有効化し、受付リンクと通知設定を確認した。実報告の配送試験は行っていない。
+- [x] 明示した56ファイルと公開履歴を限定確認し、実ログ・実ルール・実トークン・対応表を追加していない。未知の秘密までの完全監査とは扱わない。
+- [x] 日英READMEの状態とコマンドを実装・初回ソースリリース対象に合わせた。
+- [x] 対応OS、入力上限、検出対象、検出漏れ、部分出力の限界を明示した。
+- [x] 必要なローカル検証とリモートCIを区別して記録し、PF-3完了前に対象ソースのリモートCI成功を確認した。
+- [x] CODEOWNERSは`@mt4110`。mainのブランチ保護は無効で、承認済みの直push運用。保護設定は変更していない。
+- [x] 版`v0.1.0`、公開先、ソースのみの内容、署名タグ・日英Releaseを含む利用者の明示承認を記録した。
 
 ## 配布と復旧
 

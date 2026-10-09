@@ -2,9 +2,9 @@
 
 ## 状態 / Status
 
-開発版の検索CLIを実装しました。リリース・サポート対象バージョンはまだありません。検索は未指定では本文・周辺行・パス・検索語を表示します。明示した`--mask-rules`は一致ファイル全文に指定ルールを適用しますが、未知の秘密・パス・別名化・共有許可は保証範囲外です。[マスキング契約](docs/MASKING.md)を確認してください。検索語を秘密値にするとシェル履歴やプロセス一覧にも残り得ます。[検索の経路と限界](docs/SEARCH_CLI.md)を確認してください。匿名化、漏えい防止、物理消去は保証しません。
+初回ソースリリースの対象は`v0.1.0`です。セキュリティ報告は現行の公開版を対象に受け付けます。過去版の継続サポートは約束しません。検索は未指定では本文・周辺行・パス・検索語を表示します。明示した`--mask-rules`は一致ファイル全文に指定ルールを適用しますが、未知の秘密・パス・別名化・共有許可は保証範囲外です。[マスキング契約](docs/MASKING.md)を確認してください。検索語を秘密値にするとシェル履歴やプロセス一覧にも残り得ます。[検索の経路と限界](docs/SEARCH_CLI.md)を確認してください。匿名化、漏えい防止、物理消去は保証しません。
 
-A development search CLI exists; there is no released or supported version yet. Search returns original text without an explicit masking policy. `--mask-rules` applies configured rules to complete matched files, but unknown secrets, paths, aliases, and sharing permission remain outside its guarantees. See the [masking contract](docs/MASKING.md); secret queries may also appear in shell history and process listings. Review the [search contract](docs/SEARCH_CLI.md). Complete anonymization, leak prevention, and physical erasure are not guaranteed.
+The initial source release target is `v0.1.0`. Security reports are accepted for the current published version; continued support for older versions is not promised. Search returns original text without an explicit masking policy. `--mask-rules` applies configured rules to complete matched files, but unknown secrets, paths, aliases, and sharing permission remain outside its guarantees. See the [masking contract](docs/MASKING.md); secret queries may also appear in shell history and process listings. Review the [search contract](docs/SEARCH_CLI.md). Complete anonymization, leak prevention, and physical erasure are not guaranteed.
 
 ## 非公開報告 / Private reporting
 

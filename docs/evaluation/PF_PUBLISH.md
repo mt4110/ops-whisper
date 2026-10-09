@@ -4,7 +4,7 @@
 
 ## 現在の結果
 
-**LinuxのCI予行練習は成功。非公開報告設定は有効。2026-10-09に通知設定を確認し、ソース公開とリモートCI確認へ進む。** [公開条件](../OSS_READINESS.md)と[SECURITY.md](../../SECURITY.md)の通知経路確認を完了した。
+**LinuxのCI予行練習は成功。非公開報告設定は有効。2026-10-09に通知設定を確認し、main公開とリモートCI確認を完了した。** [公開条件](../OSS_READINESS.md)と[SECURITY.md](../../SECURITY.md)の通知経路確認を完了した。
 
 | 項目 | 結果 |
 | --- | --- |
@@ -20,7 +20,7 @@
 | 全体終了 | act終了コード0、Job succeeded |
 | 非公開報告 | 設定APIでenabled:true。管理者APIでAdvisoriesの取得成功。実報告送信は行わない |
 | 管理者通知 | 2026-10-09のブラウザ操作でCustom → Security alertsを保存。個人設定のGitHub通知が有効。実報告送信・メール配送試験・CLI権限追加なし |
-| 公開ソース／リモートCI | 公開操作前。通知確認済み、承認済み範囲で進める |
+| 公開ソース／リモートCI | f79ac3a06dad3b38633a369f3379544f70cbcb0fをmainへ公開し、対象SHAのCI成功を確認 |
 
 予行練習は公開予定の実装・試験・fixture・workflowをそのまま使った。DebianのローカルコンテナとGitHubのubuntu-latestランナーは異なる環境であり、予行成功をリモート成功と同一視しない。[actのランナー仕様](https://nektosact.com/usage/runners.html)も参照する。
 
@@ -41,3 +41,12 @@ actのcheckoutは候補のローカルコピーを使用した。固定SHAのact
 5. 必要な確認が揃ったら初期開発を終了し、不具合修正と文書維持へ移る。
 
 公開後の重大問題は回避策と修正版を準備する。履歴改変や公開物の削除は別途の具体的承認に従う。取得済みコピーの回収を約束しない。
+
+## GitHubでの確認（2026-10-09）
+
+- 公開ソース：[f79ac3a06dad3b38633a369f3379544f70cbcb0f](https://github.com/mt4110/ops-whisper/commit/f79ac3a06dad3b38633a369f3379544f70cbcb0f)。GitHubのmainと対象SHAが一致し、56ファイルの明示一覧と追跡ファイルが一致した。
+- [リモートCI](https://github.com/mt4110/ops-whisper/actions/runs/37912411343)はsuccess。Ubuntu 24.04.5 amd64、rgパッケージ14.1.0-1。Pythonの厳密な版はworkflowの出力に記録していない。
+- 文書28 Markdown、既存52テスト、正例・負例を含む合成6条件が成功。固定SHAのcheckoutを含む全ステップが成功した。実案件の便益・完全な秘密検出の証明ではない。
+- GitHubはMITを認識。Private vulnerability reportingはAPIでenabled:true。ブラウザでCustom → Security alertsを保存し、個人通知のGitHub上での受信設定を確認。実報告送信やメール配送試験は行っていない。
+- mainは保護なし、CODEOWNERSは@mt4110。承認された通常pushを行い、保護設定、権限、履歴は変更していない。
+- PF-3を完了し、初期機能開発を終了する。今回の追加承認は`v0.1.0`の署名タグと日本語・英語のソースRelease。この記録を反映したタグ対象SHAでもCI成功を確認し、ローカル署名検証後にタグをpushする。Releaseの公開結果はGitHubのReleaseページで確認する。

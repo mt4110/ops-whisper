@@ -1,12 +1,16 @@
 # Changelog
 
-Release entries will describe user-visible changes and limitations. No release has been made.
+Release entries describe user-visible changes and limitations. Releases contain source only; Python 3.11+ and external ripgrep are required.
 
-## Unreleased
+## v0.1.0 — 2026-10-09
+
+Initial source release target. Japanese and English READMEs describe bounded search, explicit TOML masking, reproducible synthetic checks, and known limits. Windows and real-workflow benefits remain unverified.
+
+## Development history
 
 ### Added
 
-- An explicit source-publication inventory (54 files initially, 55 after MIT adoption), external dependency notices, and a private-reporting setup proposal. Candidate-only local reproduction passed existing tests and examples; no publication or repository setting change was performed.
+- An explicit source-publication inventory (54 files initially, 55 after MIT adoption), external dependency notices, and a private-reporting setup proposal. Candidate-only local reproduction passed existing tests and examples; no publication or repository setting change was performed during PF-PACK.
 - A root MIT LICENSE with Copyright (c) 2026 Masaki Takemura, adopted following the maintainer’s instruction. Both READMEs and the source candidate reflect the adopted license.
 - A pinned 320-line synthetic infrastructure log, independently authored evidence expectations, and a reproducible six-case rg/search/masking comparison. Records missed late evidence, an unclassified secret, overbroad masks, a nonsecret counter false positive, duplicate observations, and private-key middle excerpts without using real logs.
 - Explicit `search --mask-rules` TOML policies with builtin Bearer, credential assignment, and known private-key masking plus custom Python regex. Matched files are checked in full before excerpting; masks preserve Unicode character positions and line endings.
@@ -38,5 +42,5 @@ Release entries will describe user-visible changes and limitations. No release h
 
 - Report-workflow and document-to-design trials remain on hold and are not required for portfolio completion.
 - Redaction detector selection and the `review` CLI remain on hold.
-- License adoption, copyright holder confirmation, and private vulnerability reporting setup.
-- Maintainer approval for publication and distribution.
+- Unknown-secret detection, aliases, interactive review, caches, and structured parsers are outside this release.
+- Binary distribution and global installers are not provided.
