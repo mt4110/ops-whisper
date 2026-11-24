@@ -27,3 +27,4 @@ jobs:
           results_file: scorecard.json
           results_format: json
           publish_results: true
+          fail_on_publish_error: true
