@@ -2,6 +2,10 @@
 
 [English](README.en.md)
 
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/mt4110/ops-whisper/badge)](https://scorecard.dev/viewer/?uri=github.com/mt4110/ops-whisper)
+
+OpenSSF Scorecard は 2026-11-24 に **7.0 / 10** を記録しました。最新値は上のバッジで確認できます。
+
 **原文の位置・一致件数・省略を残し、返す量を制限する、小さなローカル検索CLI。**
 
 既存のripgrepでテキストを検索し、行番号付きの抜粋をテキストまたはJSONで返します。明示したTOMLで、一致ファイルの全文へマスキングを適用してから抜粋できます。コードやログを読む際に、抜粋から元ファイルへ戻り、表示されなかった一致があるか確認するための補助ツールです。

@@ -2,6 +2,10 @@
 
 [日本語](README.md)
 
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/mt4110/ops-whisper/badge)](https://scorecard.dev/viewer/?uri=github.com/mt4110/ops-whisper)
+
+OpenSSF Scorecard recorded **7.0 / 10** on 2026-11-24. The badge shows the latest score.
+
 **A small local search CLI that bounds returned output while retaining source positions, match counts, and explicit omissions.**
 
 It searches text with existing ripgrep and returns line-linked excerpts as text or JSON. An explicit TOML policy can mask complete matched files before excerpting. It helps readers return from code or log excerpts to the source and identify matches left out of the display.
