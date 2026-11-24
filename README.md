@@ -14,7 +14,7 @@ macOS arm64、Python 3.14.7、rg 15.2.0で確認しています。Linuxの予行
 
 ## 使い方
 
-Python 3.11以上とPATH上の`rg`が必要です。チェックアウト内から実行し、追加のPythonパッケージは不要です。
+Python 3.11以上とPATH上の`rg`が必要です。開発とCIではPython 3.15.2を使います。チェックアウト内から実行し、追加のPythonパッケージは不要です。
 
 ```sh
 ./ops-whisper search 'host=' --root examples/input.synthetic.txt --context 0
