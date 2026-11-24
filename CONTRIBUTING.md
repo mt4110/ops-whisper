@@ -15,7 +15,9 @@ Issues and pull requests may be written in Japanese or English. A development se
 
 ## 検証 / Validation
 
-現在の文書検証（Python 3.11以上）：
+開発とCIでは `.python-version` の Python 3.15.2 を使います。CLIの実行条件はPython 3.11以上です。追加のPythonパッケージはありません。
+
+Development and CI use Python 3.15.2 from `.python-version`. The CLI supports Python 3.11 and later and uses only the standard library.
 
 ```sh
 python3 scripts/check_docs.py
@@ -23,6 +25,18 @@ python3 -m unittest discover -s tests -v
 python3 scripts/run_search_trial.py
 git diff --check
 ```
+
+コミット前検査を有効にするには、OSV-Scanner v2をPATHへ追加し、チェックアウトごとに次のコマンドを実行してください。macOSでは `brew install osv-scanner` を使用できます。
+
+Install OSV-Scanner v2 on PATH and run this command in each checkout to enable the pre-commit check. On macOS, use `brew install osv-scanner`.
+
+```sh
+git config --local core.hooksPath .githooks
+```
+
+フックはステージ済みのファイルから検出した依存をOSVで検査します。既知の脆弱性が1件でも見つかった場合や、スキャナーが起動・検査に失敗した場合はコミットを止めます。依存がない場合は通過します。GitHub CIも同じスキャンを実行します。[OSV-Scanner](https://google.github.io/osv-scanner/usage/scan-source)で対象の詳細を確認できます。
+
+The hook checks dependencies detected in the staged snapshot against OSV. Any known vulnerability or scanner failure blocks the commit. A dependency-free snapshot passes. GitHub CI runs the same dependency scan. See [OSV-Scanner](https://google.github.io/osv-scanner/usage/scan-source) for scan coverage.
 
 The checker validates local file links, required files, whitespace, and basic README structure. It does not validate semantic translation, external URLs, fragment anchors, or application behavior. Review those separately when relevant.
 

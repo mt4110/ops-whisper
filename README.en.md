@@ -14,7 +14,7 @@ Checks were run on macOS arm64 with Python 3.14.7 and rg 15.2.0. A Linux rehears
 
 ## Usage
 
-Python 3.11 or later and `rg` on PATH are required. Run from this checkout; no additional Python packages are needed.
+Python 3.11 or later and `rg` on PATH are required. Development and CI use Python 3.15.2. Run from this checkout. No additional Python packages are needed.
 
 ```sh
 ./ops-whisper search 'host=' --root examples/input.synthetic.txt --context 0

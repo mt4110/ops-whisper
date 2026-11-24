@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu
+
+if ! command -v osv-scanner >/dev/null 2>&1; then
+    printf '%s\n' 'Commit blocked: install OSV-Scanner v2 and add it to PATH.' >&2
+    exit 1
+fi
+
+snapshot=$(mktemp -d "${TMPDIR:-/tmp}/ops-whisper-index.XXXXXXXX")
+trap 'rm -rf -- "$snapshot"' EXIT
+trap 'exit 1' HUP INT TERM
+
+# Git passes the index for this commit, including for git commit -a.
+git checkout-index --all --ignore-skip-worktree-bits --prefix="$snapshot/"
+"$snapshot/scripts/check_dependencies.sh" "$snapshot"
